@@ -2,9 +2,35 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Route, NavLink} from 'react-router-dom';
 
+import styled from 'styled-components';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+
+// Styled Components
+
+const MainNav = styled.div`
+  background-color: #88CCFF;
+  height: 4rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid #FFF;
+`
+
+const NavItem = styled.h1`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 25rem;
+  margin: 1rem;
+  text-decoration: none;
+  color: #FFF;
+`
+
 
 class App extends Component {
   constructor(props) {
@@ -29,10 +55,10 @@ class App extends Component {
     // console.log(this.state.smurfs);
     return (
       <div className="App">
-        <div>
-          <NavLink to='/'>Smurf List</NavLink>
-          <NavLink to='/smurf-form'>Add Smurf</NavLink>
-        </div>
+        <MainNav>
+          <NavLink to='/'><NavItem>Smurf List</NavItem></NavLink>
+          <NavLink to='/smurf-form'><NavItem>Add Smurf</NavItem></NavLink>
+        </MainNav>
 
         <Route exact path='/' render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
         <Route path='/smurf-form' component={SmurfForm} />

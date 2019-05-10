@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+// Styled Components
+
+const StyledSmurfForm = styled.div`
+  background-color: red;
+  height: 5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25rem;
+`
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -36,7 +49,7 @@ class SmurfForm extends Component {
   render() {
     // console.log(this.state);
     return (
-      <div className="SmurfForm">
+      <StyledSmurfForm>
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
@@ -58,7 +71,7 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
-      </div>
+      </StyledSmurfForm>
     );
   }
 }
